@@ -8,5 +8,10 @@ export const typeDefs = `#graphql
 
   type Query {
     books: [Book]
+    readingList: [Book]
+  }
+
+  type Mutation {
+    addToReadingList(title: String!, author: String!, coverPhotoURL: String, readingLevel: String): Book
   }
 `;
