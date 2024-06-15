@@ -1,8 +1,17 @@
-import SearchBar from "@/components/SearchBar"
+"use client"
+
+import { useQuery } from "@apollo/client"
+import { GET_READING_LIST } from "@/utils/apollo/queries"
+import AllBooks from "@/components/AllBooks"
+import { Box } from "@mui/material"
 
 const ReadingList = () => {
+    const { loading, error, data } = useQuery(GET_READING_LIST)
+    
     return (
-        <div>Reading List page</div>
+        <Box sx={{width: "100%", marginBottom: "3rem"}}>
+            <AllBooks loading={loading} books={data?.readingList}/>
+        </Box>
     )
 }
 

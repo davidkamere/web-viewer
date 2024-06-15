@@ -1,26 +1,19 @@
 "use client"
 
-import styles from "./page.module.css";
-import AllBooks from "@/components/AllBooks";
-import { useQuery, gql } from "@apollo/client"
+import AllBooks from "@/components/AllBooks"
 
+import { GET_ALL_BOOKS } from "@/utils/apollo/queries";
+import { useQuery } from "@apollo/client"
+import { Box } from "@mui/material";
 
-const GET_ALL_BOOKS = gql`
-  {
-      books {
-          author
-          coverPhotoURL
-          readingLevel
-          title
-      }
-  }
-` 
 
 export default function Home() {
   const { loading, error, data } = useQuery(GET_ALL_BOOKS)
   return (
-    <main className={styles.main}>
-      <AllBooks loading={loading} books={data?.books}/>
+    <main>
+      <Box sx={{width: "100%", marginBottom: "3rem" }}>
+        <AllBooks loading={loading} books={data?.books}/>
+      </Box>
     </main>
   );
 }
