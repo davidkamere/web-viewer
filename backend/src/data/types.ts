@@ -11,3 +11,10 @@ export interface AddToReadingListArgs {
     coverPhotoURL: string
     readingLevel: string
 }
+
+export interface RemoveFromReadingListArgs {
+    title: string
+    author: string
+    coverPhotoURL: string
+    readingLevel: string
+}
