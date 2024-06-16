@@ -12,36 +12,69 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
 
     
-   
+    const debounceTimeout = useRef<number | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (debounceTimeout.current !== null) {
+                clearTimeout(debounceTimeout.current)
+            }
+        };
+    }, []);
+
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const searchText = e.target.value;
+
+        // Clear previous timeout
+        if (debounceTimeout.current !== null) {
+            clearTimeout(debounceTimeout.current)
+        }
+        
+        debounceTimeout.current = window.setTimeout(() => {
+            onChange(searchText)
+        }, 350);
+    };
+
     return (
-        <Box sx={{marginY: '20px'}}>
+        <Box sx={{
+            marginY: '20px',
+            '@media (max-width: 600px)': {
+                '& .MuiInputBase-input::placeholder': {
+                    fontSize: '2rem', 
+                },
+            },
+        }}>
             <TextField 
                 variant="standard"
                 placeholder="Search books by title"
                 fullWidth
                 InputProps={{ 
                     sx: { 
-
+                        
                         fontSize: '4rem',
                         fontWeight: 'bold',
                         paddingY: '10px',
+                        
                         '& .MuiInputBase-input::placeholder': {
-                            color: '#F76434', 
-                            fontWeight: 'bold' 
+                            color: '#FABD33', 
+                            fontWeight: 'bold',
+                            opacity: 1,
+                            
                         },
                         '& .MuiInputBase-input:focus::placeholder': {
-                            
-                            color: '#F76434',
+                            color: '#FABD33',
                         },
                         '&:after': {
                             borderBottom: '2px solid #555' // Underline color on focus
-                        }
+                        },
+                        
                     },
                     autoFocus: true
                     
                     
                 }}
-                onChange={(e) => onChange(e.target.value)}  
+                onChange={handleInputChange}  
             />
         </Box>
     )

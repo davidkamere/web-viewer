@@ -1,22 +1,21 @@
 ::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
-    background-color: transparent; /* Background color of the scrollbar */
+    width: 10px; 
+    background-color: transparent; 
 }
 
 /* Styles for the draggable scrolling element */
 ::-webkit-scrollbar-thumb {
-    background-color: #335C6E;
+    background-color: #000;
     height: 5px; 
-    border-radius: 2.5px
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent; /* Background color of the track */
+    background-color: transparent; 
 }
 
 /* Styles for the top-most layer of the progress bar */
 ::-webkit-scrollbar-track-piece {
-    background-color: transparent; /* Background color of the track piece */
+    background-color: transparent; 
 }
 
 ::-webkit-scrollbar-button {
@@ -25,7 +24,7 @@
 
 /* Styles for the corner where two scrollbars might meet */
 ::-webkit-scrollbar-corner {
-    background-color: transparent; /* Background color of the scrollbar corner */
+    background-color: transparent; 
 }
 
 

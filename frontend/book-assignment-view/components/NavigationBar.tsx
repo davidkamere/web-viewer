@@ -1,5 +1,6 @@
 "use client"
-import { Box, Tab, Tabs } from "@mui/material";
+
+import { Box } from "@mui/material";
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
 
@@ -15,7 +16,18 @@ const NavigationBar = () => {
     return (
         <>
             <Box sx={{ display: "flex", width: '100%' , marginY: '3rem' , justifyContent: "center"}}>
-                <Box sx={{display: "flex", flexDirection: "row"}}>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    border: '1px solid white',
+                    borderRadius: 16,
+                    transition: 'box-shadow 0.3s ease',
+                    '&:hover': {
+                        boxShadow: '0px 0px 1px rgba(0, 0, 0, 0.2)',
+                    },
+                }}
+            >
                     {links.map(link => (
                         <Link href={link.href} key={link.name} style={{ textDecoration: 'none', color:'inherit' }}>
                             <Box 
@@ -24,23 +36,14 @@ const NavigationBar = () => {
                                         borderRadius: 16,
                                         padding: '15px',
                                         textDecoration: 'none',
-                                        // '&:hover': {
-                                        //     backgroundColor: '#4AA088',
-                                        // }
-
                                     },
                                     
                                     pathname === link.href && {
-                                        backgroundColor:  '#335c6e' ,
+                                        backgroundColor:  '#5acccc' ,
                                         borderRadius: 16,
                                         padding: '15px',
                                         color: 'white',
-                                        // '&:hover': {
-                                        //     backgroundColor: '#335c6e',
-                                            
-                                        // }
                                     }
-
                                     ]}
                             >
                                 {link.name}
