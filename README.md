@@ -77,7 +77,7 @@ To get the application started you can switch into the `src/frontend/book-assign
 npm install
 ```
 
-Then run the following command to run the application
+Then run the following command to start the application
 
 ```bash
 npm run dev
