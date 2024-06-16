@@ -69,6 +69,21 @@ query Books {
 
 You can use this query to get the list of books to display in your frontend. You may need to adjust the `coverPhotoURL` to be a valid URL. The photos are in the `src/frontend/assets` directory.
 
+
+### FrontEnd
+To get the application started you can switch into the `src/frontend/book-assignment-view` folder and run
+
+```bash
+npm install
+```
+
+Then run the following command to run the application
+
+```bash
+npm run dev
+```
+
+
 ### Styling Guidelines
 - Use the "Mulish" Google font
 - You can use the following colors (You don't have to use all but you can pick and choose from here)
@@ -81,5 +96,9 @@ You can use this query to get the list of books to display in your frontend. You
 - Code quality and organization.
 - User experience and design.
 - Beautiful and responsive UI.
+
+
+
+
 
 
